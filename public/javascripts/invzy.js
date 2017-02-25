@@ -9,6 +9,10 @@ app.config(['$routeProvider', function($routeProvider){
             templateUrl: 'partials/home.html',
             controller: 'HomeCtrl'
         })
+        .when('/instruments', {
+            templateUrl: 'partials/instruments.html',
+            controller: 'HomeCtrl'
+        })
         .when('/add-instrument', {
             templateUrl: 'partials/instrument-form.html',
             controller: 'AddinstrumentCtrl'
@@ -20,6 +24,14 @@ app.config(['$routeProvider', function($routeProvider){
         .when('/instrument/delete/:id', {
             templateUrl: 'partials/instrument-delete.html',
             controller: 'DeleteinstrumentCtrl'
+        })
+        .when('/prices', {
+            templateUrl: 'partials/prices.html',
+            controller: 'PricesHomeCtrl'
+        })
+        .when('/portfolios', {
+            templateUrl: 'partials/portfolios.html',
+            controller: 'PortfoliosHomeCtrl'
         })
         .otherwise({
             redirectTo: '/'
@@ -81,4 +93,23 @@ app.controller('DeleteinstrumentCtrl', ['$scope', '$resource', '$location', '$ro
                 $location.path('/');
             });
         }
+    }]);
+
+//Prices Controllers
+app.controller('PricesHomeCtrl', ['$scope', '$resource', 
+    function($scope, $resource){
+        var prices = $resource('/api/prices');
+        prices.query(function(prices){
+            $scope.prices = prices;
+        });
+    }]);
+
+
+//Portfolios Controllers
+app.controller('PortfoliosHomeCtrl', ['$scope', '$resource', 
+    function($scope, $resource){
+        var portfolios = $resource('/api/portfolios');
+        portfolios.query(function(portfolios){
+            $scope.portfolios = portfolios;
+        });
     }]);

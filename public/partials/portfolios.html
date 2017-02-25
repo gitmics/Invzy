@@ -1,0 +1,16 @@
+<h1>Portfolios</h1> 
+
+<p>
+    <a href="/#/add-portfolio">Add an portfolio</a>
+</p>
+
+<ul>
+    <li ng-repeat='portfolio in portfolios'>
+        <a href="/#/portfolio/{{portfolio._id}}">
+            {{portfolio.name}} {{portfolio.instruments}} 
+        </a>
+        <a href="/#/portfolio/delete/{{portfolio._id}}">
+            <i class="glyphicon glyphicon-remove"></i>
+        </a>
+    </li>
+</ul>

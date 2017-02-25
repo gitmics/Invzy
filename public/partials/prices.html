@@ -1,0 +1,16 @@
+<h1>Prices</h1> 
+
+<p>
+    <a href="/#/add-price">Add a price</a>
+</p>
+
+<ul>
+    <li ng-repeat='price in prices'>
+        <a href="/#/price/{{price._id}}">
+            {{price.instrument}}  ({{price.price}}) ({{price.date}})
+        </a>
+        <a href="/#/price/delete/{{price._id}}">
+            <i class="glyphicon glyphicon-remove"></i>
+        </a>
+    </li>
+</ul>
