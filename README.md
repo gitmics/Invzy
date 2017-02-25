@@ -10,6 +10,8 @@ Create a mongodb database called 'invzy'
 Add 3 collections to that database
 
 --instruments
+
 --portfolios
+
 --prices
 
