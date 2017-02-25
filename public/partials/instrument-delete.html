@@ -1,0 +1,10 @@
+<h1>Delete instrument</h1>
+<p>
+    Are you sure you want to delete this instrument?
+</p>
+<ul>
+    <li>ticker: {{instrument.ticker}}</li>
+    <li>name: {{instrument.name}}</li>
+</ul>
+<input type="button" value="Yes, Delete" class="btn btn-danger" ng-click="delete()" />
+<a class="btn btn-default" href="/#/">No, Go Back</a>

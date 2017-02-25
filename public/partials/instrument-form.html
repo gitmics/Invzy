@@ -1,0 +1,14 @@
+<h1>Add/Edit a instrument</h1>
+
+<form>
+    <div class="form-group">
+        <label>ticker</label>		
+        <input class="form-control" ng-model="instrument.ticker"></input>
+    </div>
+    <div class="form-group">
+        <label>name</label>
+        <textarea class="form-control" ng-model="instrument.name"></textarea>
+    </div>
+    <input type="button" class="btn btn-primary" value="Save" ng-click="save()"></input>	
+    <a class="btn btn-default" href="/#/">Return to List</a>
+</form>

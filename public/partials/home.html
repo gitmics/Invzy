@@ -1,0 +1,16 @@
+<h1>Investments</h1> 
+
+<p>
+    <a href="/#/add-instrument">Add an instrument</a>
+</p>
+
+<ul>
+    <li ng-repeat='instrument in instruments'>
+        <a href="/#/instrument/{{instrument._id}}">
+            {{instrument.name}} ({{instrument.ticker}})
+        </a>
+        <a href="/#/instrument/delete/{{instrument._id}}">
+            <i class="glyphicon glyphicon-remove"></i>
+        </a>
+    </li>
+</ul>
