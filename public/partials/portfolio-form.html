@@ -1,0 +1,22 @@
+<h1>Add/Edit a Portfolio</h1>
+
+<form>
+    <div class="form-group">
+        <label>name</label>		
+        <input class="form-control" ng-model="portfolio.name"></input>
+    </div>
+    <div class="form-group">
+      <ul>
+        <li ng-repeat='instrument in instruments'>
+          <a href="/#/instrument/{{instrument._id}}">
+            {{instrument.name}} ({{instrument.ticker}})
+          </a>
+          <a href="/#/instrument/delete/{{instrument._id}}">
+            <i class="glyphicon glyphicon-remove"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <input type="button" class="btn btn-primary" value="Save" ng-click="save()"></input>	
+    <a class="btn btn-default" href="/#/">Return to List</a>
+</form>

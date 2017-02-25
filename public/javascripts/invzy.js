@@ -33,6 +33,10 @@ app.config(['$routeProvider', function($routeProvider){
             templateUrl: 'partials/portfolios.html',
             controller: 'PortfoliosHomeCtrl'
         })
+        .when('/add-portfolio', {
+            templateUrl: 'partials/portfolio-form.html',
+            controller: 'AddPortfolioCtrl'
+        })
         .otherwise({
             redirectTo: '/'
         });
@@ -112,4 +116,15 @@ app.controller('PortfoliosHomeCtrl', ['$scope', '$resource',
         portfolios.query(function(portfolios){
             $scope.portfolios = portfolios;
         });
+    }]);
+
+app.controller('AddPortfolioCtrl', ['$scope', '$resource', '$location',
+    function($scope, $resource, $location){
+        $scope.save = function(){
+            console.log("trying to save new portfolio");
+            var portfolios = $resource('/api/portfolios');
+            portfolios.save($scope.portfolio, function(){
+                $location.path('/');
+            });
+        };
     }]);

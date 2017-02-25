@@ -21,8 +21,8 @@ router.post('/', function(req, res){
 	console.log("saving new portfolio");
     var collection = db.get('portfolios');
     collection.insert({
-        ticker: req.body.ticker,
-        name: req.body.name
+        name: req.body.name,
+        instruments: []
     }, function(err, portfolio){
         if (err) throw err;
 
@@ -47,8 +47,8 @@ router.put('/:id', function(req, res){
         _id: req.params.id
     },
     {
-        ticker: req.body.ticker,
-        name: req.body.name
+        name: req.body.name,
+        instruments: []
     }, function(err, portfolio){
         if (err) throw err;
 
